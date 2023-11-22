@@ -1,6 +1,5 @@
 package com.example.mascara;
 
-
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -8,13 +7,18 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
-import android.util.Log; // Importa la clase Log
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
+
+import com.cloudinary.android.MediaManager;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -30,6 +34,13 @@ public class MainActivity extends AppCompatActivity {
 
         // Inicializar ImageView
         imageView = findViewById(R.id.imageView);
+
+        // Configuración de Cloudinary
+        Map<String, String> config = new HashMap<>();
+        config.put("cloud_name", "dby8lelja");
+        config.put("api_key", "749843827267546");
+        config.put("api_secret", "L205bGZFOBOeBfmXlJgV0XWpV2U");
+        MediaManager.init(this, config);
 
         // Verificar y solicitar permisos si es necesario
         checkAndRequestPermissions();
@@ -61,6 +72,9 @@ public class MainActivity extends AppCompatActivity {
             // Mostrar la imagen en el ImageView
             imageView.setImageURI(selectedImageUri);
             imageView.setVisibility(View.VISIBLE);
+
+            // Subir la imagen a Cloudinary
+            ImageUploader.uploadImageToCloudinary(this, selectedImageUri);
 
             // Agregar un registro de consola en el onActivityResult
             Log.d("MainActivity", "onActivityResult executed");
