@@ -37,9 +37,9 @@ public class MainActivity extends AppCompatActivity {
 
         // Configuración de Cloudinary
         Map<String, String> config = new HashMap<>();
-        config.put("cloud_name", "dby8lelja");
-        config.put("api_key", "749843827267546");
-        config.put("api_secret", "L205bGZFOBOeBfmXlJgV0XWpV2U");
+        config.put("cloud_name", "deqri4x3d");
+        config.put("api_key", "226123788281381");
+        config.put("api_secret", "aYJI-5do6lM1jidWAH-RwxGkBmg");
         MediaManager.init(this, config);
 
         // Verificar y solicitar permisos si es necesario
@@ -74,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
             imageView.setVisibility(View.VISIBLE);
 
             // Subir la imagen a Cloudinary
-            ImageUploader.uploadImageToCloudinary(this, selectedImageUri);
+            ImageUploader.uploadImageToCloudinaryAndCosmosDB(this, selectedImageUri);
 
             // Agregar un registro de consola en el onActivityResult
             Log.d("MainActivity", "onActivityResult executed");
@@ -113,3 +113,4 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 }
+

@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -25,7 +27,7 @@
 
         <meta-data
             android:name="CLOUDINARY_URL"
-            android:value="CLOUDINARY_URL=cloudinary://749843827267546:L205bGZFOBOeBfmXlJgV0XWpV2U@dby8lelja"/>
+            android:value="CLOUDINARY_URL=cloudinary://226123788281381:aYJI-5do6lM1jidWAH-RwxGkBmg@deqri4x3d"/>
     </application>
 
 </manifest>
